@@ -14,6 +14,28 @@
 </head>
 
 <body>
+    <h1 class="text-center mt-5 text-success">Phone Seeker</h1>
+
+    <!-- Input Field and Button Section -->
+    <div class="w-75 mx-auto mt-5 input-group mb-3">
+        <input type="text" class="form-control" id="search-field" placeholder="Search Your Phone"
+            aria-label="Search Phones" aria-describedby="button-addon2">
+        <button class="btn btn-outline-success" onclick="searchMobile()" type="button"
+            id="button-addon2">Search</button>
+    </div>
+
+    <!-- //api error  -->
+    <h3 id="api-error" class="text-center text-danger">Something Wrong!!! </h3>
+
+    <!-- //empty search display-->
+    <div class="container" id="empty"></div>
+    <!-- Wrong search  -->
+    <div class="container" id="not-available"></div>
+    <!-- //Phone display  -->
+    <div id="display-phone" class="row row-cols-1 row-cols-md-3 g-4">
+    </div>
+
+
 
 
     <!-- Bootstrap Js  -->

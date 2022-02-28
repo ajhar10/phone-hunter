@@ -1,0 +1,9 @@
+.empty {
+    padding: 70px 0;
+    border: 3px solid rgb(201, 9, 98);
+}
+.not-available {
+    padding: 70px 0;
+    border: 3px solid rgb(79, 184, 58);
+    text-align: center;
+}
