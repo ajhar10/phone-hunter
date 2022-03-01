@@ -36,27 +36,35 @@ const displayPhone = phones => {
     const notAvailable = document.getElementById('not-available');
     displayResult.textContent = '';
     notAvailable.textContent = '';
+    const phones20 = phones.slice(0, 20);
 
-    console.log(phones == null);
-    if (phones.length == 0) {
+    if (phones20.length == 0) {
         const div = document.createElement('div');
         div.classList.add('not-available');
         div.innerHTML = `<h3>Not available in our site.</h3>`
         notAvailable.appendChild(div)
     }
     else {
-        phones.forEach(phone => {
+        phones20.forEach(phone => {
             const div = document.createElement('div');
-            // div.classList.add('col');
-
-            div.innerHTML = `<div onclick='showDetails(${phone.slug})' class="card">
+            div.innerHTML = `<div class="card mx-5">
             <img src="${phone.image}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${phone.phone_name}</h5>
                 <p class="card-text">${phone.brand}</p>
             </div>
+            <button onclick= "showDetails('${phone.slug}')"  class="btn btn-success">Details</button>
         </div>`
             displayResult.appendChild(div);
         });
     }
+}
+
+//Show Mobile Phone Details
+const showDetails = id => {
+    const url = `https://openapi.programming-hero.com/api/phone/${id}`;
+    console.log(id);
+    fetch(url)
+        .then(response => response.json())
+        .then(data => console.log(data))
 }
