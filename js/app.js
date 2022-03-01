@@ -1,10 +1,12 @@
 //Error Hide
 document.getElementById('api-error').style.display = "none";
+
 //Onclick handler
 const searchMobile = () => {
     const searchInputField = document.getElementById('search-field');
     const emptyInputResultDisplay = document.getElementById('empty');
     document.getElementById('api-error').style.display = "none";
+    document.getElementById('brand-info').style.display = "none";
     emptyInputResultDisplay.textContent = '';
     const searchValue = searchInputField.value;
     searchInputField.value = '';

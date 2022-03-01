@@ -7,3 +7,12 @@
     border: 3px solid rgb(79, 184, 58);
     text-align: center;
 }
+/* Main  */
+main{
+    min-height: calc(100vh - 48px - 96px);
+}
+
+/* footer  */
+footer{
+    padding: 20px;
+}

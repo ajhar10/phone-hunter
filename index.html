@@ -14,32 +14,81 @@
 </head>
 
 <body>
-    <h1 class="text-center mt-5 text-success">Phone Seeker</h1>
+    <header>
+        <h1 class="text-center text-success">Phone Seeker</h1>
+    </header>
 
-    <!-- Input Field and Button Section -->
-    <div class="w-75 mx-auto mt-5 input-group mb-3">
-        <input type="text" class="form-control" id="search-field" placeholder="Search Your Phone"
-            aria-label="Search Phones" aria-describedby="button-addon2">
-        <button class="btn btn-outline-success" onclick="searchMobile()" type="button"
-            id="button-addon2">Search</button>
-    </div>
-
-    <!-- //api error  -->
-    <h3 id="api-error" class="text-center text-danger">Something Wrong!!! </h3>
-
-    <!-- //empty search display-->
-    <div class="container" id="empty"></div>
-    <!-- Wrong search  -->
-    <div class="container" id="not-available"></div>
-    <!-- Single phone Details  -->
-    <div class="container mb-5" id="phone-details">
-
-    </div>
-    <!-- //Phone display  -->
-    <div class="container">
-        <div id="display-phone" class="row row-cols-1 row-cols-md-3 g-5 mx-auto ">
+    <main>
+        <!-- Input Field and Button Section -->
+        <div class="w-75 mx-auto input-group mt-5 mb-5">
+            <input type="text" class="form-control" id="search-field" placeholder="Search Your Phone"
+                aria-label="Search Phones" aria-describedby="button-addon2">
+            <button class="btn btn-outline-success" onclick="searchMobile()" type="button"
+                id="button-addon2">Search</button>
         </div>
-    </div>
+        <!-- Before Display Mobile  -->
+        <div id="brand-info" class="container row row-cols-1 row-cols-md-3 mx-auto ">
+            <div class="col">
+                <div class="card text-white bg-success" style="max-width: 20rem; min-height: 250px;">
+                    <div class="card-header">iPhone - Apple</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Iphone & Apple watch available</h5>
+                        <p class="card-text">The iPhone is a line of smartphones designed and marketed by Apple Inc.
+                            that use Apple's iOS mobile operating system.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-white bg-success" style="max-width: 20rem; min-height: 250px;">
+                    <div class="card-header">Samsung</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Phone & Watch available</h5>
+                        <p class="card-text">Discover the latest in electronic & smart appliance technology with
+                            Samsung. Find the next big thing from smartphones & tablets to laptops & tvs & more.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-white bg-success" style="max-width: 20rem; min-height: 250px;">
+                    <div class="card-header">Only Oppo</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Phone Available</h5>
+                        <p class="card-text">OPPO, a mobile phone brand enjoyed by young people around the world,
+                            specializes in designing innovative mobile photography technology.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- //api error  -->
+        <h3 id="api-error" class="text-center text-danger">Something Wrong!!! </h3>
+
+        <!-- //empty search display-->
+        <div class="container" id="empty"></div>
+        <!-- Wrong search  -->
+        <div class="container" id="not-available"></div>
+        <!-- Single phone Details  -->
+        <div class="container mb-5" id="phone-details">
+
+        </div>
+        <!-- //Phone display  -->
+        <div class="container mb-5">
+            <div id="display-phone" class="row row-cols-1 row-cols-md-3 g-5 mx-auto ">
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Start  -->
+    <footer class="text-center text-white " style="background-color: #21081a;">
+        <!-- Copyright -->
+        <div class="text-center" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2022 Copyright:
+            <a class="text-white" href="https://github.com/ajhar10/">ajhar10.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer End  -->
 
 
 
