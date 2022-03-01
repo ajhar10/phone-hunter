@@ -53,18 +53,58 @@ const displayPhone = phones => {
                 <h5 class="card-title">${phone.phone_name}</h5>
                 <p class="card-text">${phone.brand}</p>
             </div>
-            <button onclick= "showDetails('${phone.slug}')"  class="btn btn-success">Details</button>
+            <button onclick= "phoneDetails('${phone.slug}')"  class="btn btn-success">Details</button>
         </div>`
             displayResult.appendChild(div);
         });
     }
 }
 
-//Show Mobile Phone Details
-const showDetails = id => {
+//Mobile Phone Details
+const phoneDetails = id => {
     const url = `https://openapi.programming-hero.com/api/phone/${id}`;
-    console.log(id);
     fetch(url)
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(phone => displayPhoneDetails(phone.data))
+}
+
+//Display phone details
+const displayPhoneDetails = data => {
+    const singlePhoneDetailsDisplay = document.getElementById('phone-details');
+    singlePhoneDetailsDisplay.textContent = '';
+    const div = document.createElement('div');
+    console.log(data);
+    div.classList.add('card');
+
+    div.innerHTML = `
+            <div class="row g-0">
+            <div class="card-header text-center text-info"><h3> ${data.name}</h3> <small class="text-muted">${data.releaseDate}</small></div>
+                  <div class="col-md-2">
+                    <img src="${data.image}" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <div class="card-body">
+                      <h5 class="card-title">Main Features</h5>
+                      <p class="card-text"><small class="text-muted">${data.mainFeatures.storage}</small></p>
+                      <p class="card-text"><small class="text-muted">${data.mainFeatures.displaySize}</small></p>
+                      <p class="card-text"><small class="text-muted">${data.mainFeatures.chipSet}</small></p>
+                      <p class="card-text"><small class="text-muted">${data.mainFeatures.memory}</small></p>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2">
+                    <div class="card-body">
+                      <h5 class="card-title">Sensor Info:</h5>
+                      <small class="text-muted">${data.mainFeatures.sensors[0]}</small></br>
+                      <small class="text-muted">${data.mainFeatures.sensors[1]}</small></br>
+                      <small class="text-muted">${data.mainFeatures.sensors[2]}</small></br>
+                      <small class="text-muted">${data.mainFeatures.sensors[3]}</small></br>
+                      <small class="text-muted">${data.mainFeatures.sensors[4]}</small></br>
+                      
+                    </div>
+                  </div>
+            </div>      
+    `
+    singlePhoneDetailsDisplay.appendChild(div);
 }
