@@ -116,12 +116,8 @@ const displayPhoneDetails = data => {
                 <div class="col-md-4">
                     <div class="card-body">
                       <h5 class="card-title fw-bold text-danger">Other Info:</h5>
-                      <small class="text-muted"><span class="text-info fw-bold">GPS:</span> ${data.others.GPS || ''}</small></br>
-                      <small class="text-muted"><span class="text-info fw-bold">NFC:</span> ${data.others.NFC || ''}</small></br>
-                      <small class="text-muted"><span class="text-info fw-bold">Radio:</span> ${data.others.Radio || ''}</small></br>
-                      <small class="text-muted"><span class="text-info fw-bold">Bluetooth:</span> ${data.others.Bluetooth || ''}</small></br>
-                      <small class="text-muted"><span class="text-info fw-bold">USB:</span> ${data.others.USB || ''}</small></br>
-                      <small class="text-muted"><span class="text-info fw-bold">WLAN:</span> ${data.others.WLAN || ''}</small></br>
+                      
+                      
                       
                     </div>
                 </div>
