@@ -34,6 +34,8 @@ const errorDisplay = error => {
 const displayPhone = phones => {
     const displayResult = document.getElementById('display-phone');
     const notAvailable = document.getElementById('not-available');
+    const singlePhoneDetailsDisplay = document.getElementById('phone-details');
+    singlePhoneDetailsDisplay.textContent = '';
     displayResult.textContent = '';
     notAvailable.textContent = '';
     const phones20 = phones.slice(0, 20);
@@ -78,14 +80,14 @@ const displayPhoneDetails = data => {
 
     div.innerHTML = `
             <div class="row g-0">
-            <div class="card-header text-center text-info"><h3> ${data.name}</h3> <small class="text-muted">${data.releaseDate}</small></div>
+            <div class="card-header text-center text-warning"><h3> ${data.name}</h3> <small class="text-muted release-date">${data.releaseDate || "No Release Date Found"}</small></div>
                   <div class="col-md-2">
                     <img src="${data.image}" class="img-fluid rounded-start" alt="...">
                   </div>
                   
                   <div class="col-md-4">
                     <div class="card-body">
-                      <h5 class="card-title">Main Features</h5>
+                      <h5 class="card-title text-danger">Main Features</h5>
                       <p class="card-text"><small class="text-muted">${data.mainFeatures.storage}</small></p>
                       <p class="card-text"><small class="text-muted">${data.mainFeatures.displaySize}</small></p>
                       <p class="card-text"><small class="text-muted">${data.mainFeatures.chipSet}</small></p>
@@ -95,16 +97,36 @@ const displayPhoneDetails = data => {
 
                   <div class="col-md-2">
                     <div class="card-body">
-                      <h5 class="card-title">Sensor Info:</h5>
-                      <small class="text-muted">${data.mainFeatures.sensors[0]}</small></br>
-                      <small class="text-muted">${data.mainFeatures.sensors[1]}</small></br>
-                      <small class="text-muted">${data.mainFeatures.sensors[2]}</small></br>
-                      <small class="text-muted">${data.mainFeatures.sensors[3]}</small></br>
-                      <small class="text-muted">${data.mainFeatures.sensors[4]}</small></br>
+                      <h5 class="card-title fw-bold text-danger">Sensor Info:</h5>
+                      <small class="text-muted">${data.mainFeatures.sensors[0] || ''}</small></br>
+                      <small class="text-muted">${data.mainFeatures.sensors[1] || ''}</small></br>
+                      <small class="text-muted">${data.mainFeatures.sensors[2] || ''}</small></br>
+                      <small class="text-muted">${data.mainFeatures.sensors[3] || ''}</small></br>
+                      <small class="text-muted">${data.mainFeatures.sensors[4] || ''}</small></br>
+                      <small class="text-muted">${data.mainFeatures.sensors[5] || ''}</small></br>
+                      <small class="text-muted">${data.mainFeatures.sensors[6] || ''}</small></br>
+                      <small class="text-muted">${data.mainFeatures.sensors[7] || ''}</small></br>
                       
                     </div>
-                  </div>
-            </div>      
+                </div>
+
+                
+                <div class="col-md-4">
+                    <div class="card-body">
+                      <h5 class="card-title fw-bold text-danger">Other Info:</h5>
+                      <small class="text-muted"><span class="text-info fw-bold">GPS:</span> ${data.others.GPS || ''}</small></br>
+                      <small class="text-muted"><span class="text-info fw-bold">NFC:</span> ${data.others.NFC || ''}</small></br>
+                      <small class="text-muted"><span class="text-info fw-bold">Radio:</span> ${data.others.Radio || ''}</small></br>
+                      <small class="text-muted"><span class="text-info fw-bold">Bluetooth:</span> ${data.others.Bluetooth || ''}</small></br>
+                      <small class="text-muted"><span class="text-info fw-bold">USB:</span> ${data.others.USB || ''}</small></br>
+                      <small class="text-muted"><span class="text-info fw-bold">WLAN:</span> ${data.others.WLAN || ''}</small></br>
+                      
+                    </div>
+                </div>
+
+    </div>      
     `
+
     singlePhoneDetailsDisplay.appendChild(div);
+    console.log(data);
 }
