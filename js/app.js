@@ -75,19 +75,22 @@ const phoneDetails = id => {
 //Display phone details
 const displayPhoneDetails = data => {
     const singlePhoneDetailsDisplay = document.getElementById('phone-details');
+    const otherDetailsDisplay = document.getElementById('other-info');
+    const sensorDetailsDisplay = document.getElementById('sensor-info');
+    sensorDetailsDisplay.textContent = '';
     singlePhoneDetailsDisplay.textContent = '';
+    otherDetailsDisplay.textContent = '';
     const div = document.createElement('div');
-    console.log(data);
     div.classList.add('card');
 
     div.innerHTML = `
             <div class="row g-0">
             <div class="card-header text-center text-warning"><h3> ${data.name}</h3> <small class="text-muted release-date">${data.releaseDate || "No Release Date Found"}</small></div>
-                  <div class="col-md-2">
+                  <div class="col-md-6">
                     <img src="${data.image}" class="img-fluid rounded-start" alt="...">
                   </div>
                   
-                  <div class="col-md-4">
+                  <div class="col-md-6">
                     <div class="card-body">
                       <h5 class="card-title text-danger">Main Features</h5>
                       <p class="card-text"><small class="text-muted">${data.mainFeatures.storage}</small></p>
@@ -97,34 +100,81 @@ const displayPhoneDetails = data => {
                     </div>
                   </div>
 
-                  <div class="col-md-2">
-                    <div class="card-body">
-                      <h5 class="card-title fw-bold text-danger">Sensor Info:</h5>
-                      <small class="text-muted">${data.mainFeatures.sensors[0] || ''}</small></br>
-                      <small class="text-muted">${data.mainFeatures.sensors[1] || ''}</small></br>
-                      <small class="text-muted">${data.mainFeatures.sensors[2] || ''}</small></br>
-                      <small class="text-muted">${data.mainFeatures.sensors[3] || ''}</small></br>
-                      <small class="text-muted">${data.mainFeatures.sensors[4] || ''}</small></br>
-                      <small class="text-muted">${data.mainFeatures.sensors[5] || ''}</small></br>
-                      <small class="text-muted">${data.mainFeatures.sensors[6] || ''}</small></br>
-                      <small class="text-muted">${data.mainFeatures.sensors[7] || ''}</small></br>
-                      
-                    </div>
-                </div>
-
-                
-                <div class="col-md-4">
-                    <div class="card-body">
-                      <h5 class="card-title fw-bold text-danger">Other Info:</h5>
-                      
-                      
-                      
-                    </div>
-                </div>
+                  
 
     </div>      
     `
+    // ---------------Sensor Information Start----------------
+    console.log(data.mainFeatures.sensors.length);
+    if (data.mainFeatures.sensors.length == 0) {
+
+        sensorDetailsDisplay.innerHTML = `<div class="card text-dark bg-light " >
+        <div class="card-header py-3">Sensor Information:</div>
+        <div class="card-body">
+          
+          <h5 class="card-title">Not Available</h5>
+        </div>
+      </div>`;
+    } else {
+
+        const ul = document.createElement('ul');
+        ul.classList.add('list-group');
+        const h4 = document.createElement('h4');
+        h4.innerText = 'Sensor Info:';
+        h4.classList.add('text-danger');
+        ul.appendChild(h4)
+        for (const element of data.mainFeatures.sensors) {
+            const li = document.createElement('li');
+            li.classList.add('list-group-item');
+            li.innerText = element;
+            // console.log(`${key}: ${value}`);
+            ul.appendChild(li);
+        }
+        sensorDetailsDisplay.appendChild(ul);
+    }
+    // ---------------Sensor Information End----------------
+
+    // ---------------Other Information Start----------------
+    if (data.others == undefined) {
+
+        const ul = document.createElement('ul');
+        ul.classList.add('list-group');
+        const h4 = document.createElement('h4');
+        h4.innerText = 'Other Info:';
+        h4.classList.add('text-danger');
+        ul.appendChild(h4);
+        const li = document.createElement('li');
+        li.classList.add('list-group-item');
+        li.innerText = "Not Available!";
+        ul.appendChild(li);
+        otherDetailsDisplay.appendChild(ul);
+    } else {
+
+        const ul = document.createElement('ul');
+        ul.classList.add('list-group');
+        const h4 = document.createElement('h4');
+        h4.innerText = 'Other Info:';
+        h4.classList.add('text-danger');
+        ul.appendChild(h4)
+        for (const [key, value] of Object.entries(data.others)) {
+            const li = document.createElement('li');
+            li.classList.add('list-group-item');
+            li.innerText = `${key}: ${value}`;
+            // console.log(`${key}: ${value}`);
+            ul.appendChild(li);
+        }
+        otherDetailsDisplay.appendChild(ul);
+    }
+    //------------- Other Information End ---------------
 
     singlePhoneDetailsDisplay.appendChild(div);
-    console.log(data);
+
+    // console.log(data.other.length == 0);
 }
+
+// const otherInfo = data => {
+//     console.log(data);
+//     const otherInfo = document.getElementById('other-info');
+//     for (const [key, value] of Object.entries(info.others)) {
+//         console.log(`${key}: ${value}`);
+// }
