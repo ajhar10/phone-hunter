@@ -113,7 +113,7 @@ const displayPhoneDetails = data => {
     </div>      
     `
     // ---------------Sensor Information Start----------------
-    console.log(data.mainFeatures.sensors.length);
+
     if (data.mainFeatures.sensors.length == 0) {
 
         sensorDetailsDisplay.innerHTML = `<div class="card text-dark bg-light " >
@@ -168,7 +168,7 @@ const displayPhoneDetails = data => {
             const li = document.createElement('li');
             li.classList.add('list-group-item');
             li.innerText = `${key}: ${value}`;
-            // console.log(`${key}: ${value}`);
+
             ul.appendChild(li);
         }
         otherDetailsDisplay.appendChild(ul);
@@ -177,12 +177,7 @@ const displayPhoneDetails = data => {
 
     singlePhoneDetailsDisplay.appendChild(div);
 
-    // console.log(data.other.length == 0);
+
 }
 
-// const otherInfo = data => {
-//     console.log(data);
-//     const otherInfo = document.getElementById('other-info');
-//     for (const [key, value] of Object.entries(info.others)) {
-//         console.log(`${key}: ${value}`);
-// }
+
