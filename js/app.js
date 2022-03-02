@@ -7,6 +7,12 @@ const searchMobile = () => {
     const emptyInputResultDisplay = document.getElementById('empty');
     document.getElementById('api-error').style.display = "none";
     document.getElementById('brand-info').style.display = "none";
+    const singlePhoneDetailsDisplay = document.getElementById('phone-details');
+    const otherDetailsDisplay = document.getElementById('other-info');
+    const sensorDetailsDisplay = document.getElementById('sensor-info');
+    sensorDetailsDisplay.textContent = '';
+    singlePhoneDetailsDisplay.textContent = '';
+    otherDetailsDisplay.textContent = '';
     emptyInputResultDisplay.textContent = '';
     const searchValue = searchInputField.value;
     searchInputField.value = '';
@@ -37,9 +43,11 @@ const displayPhone = phones => {
     const displayResult = document.getElementById('display-phone');
     const notAvailable = document.getElementById('not-available');
     const singlePhoneDetailsDisplay = document.getElementById('phone-details');
+
     singlePhoneDetailsDisplay.textContent = '';
     displayResult.textContent = '';
     notAvailable.textContent = '';
+    // Display 20 Device 
     const phones20 = phones.slice(0, 20);
 
     if (phones20.length == 0) {
